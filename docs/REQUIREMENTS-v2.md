@@ -19,7 +19,7 @@ This Technical Specification represents **Iteration 2** of the "Mongolia: Land o
 A premium, single-page informational microsite serving as a digital gateway to Mongolia. The site must evoke the scale of the Mongolian landscape through high-quality media, generous whitespace, and fluid transitions.
 
 *   **Objective:** To educate and inspire international visitors through three core pillars: Geography (The Steppe), Culture (The Naadam/Nomadic Life), and History (The Empire).
-*   **Design Philosophy:** "Expansive Minimalism"—Prioritizing high-resolution imagery and typography over dense UI elements.
+*   **Design Philosophy:** "Expansive Minimalism"âPrioritizing high-resolution imagery and typography over dense UI elements.
 
 ---
 
