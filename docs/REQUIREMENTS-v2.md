@@ -3,7 +3,7 @@
 ## Iteration 2
 
 ## Project Description
-simple web page introducing Mongolia
+
 
 ## User Feedback Incorporated
 Initial iteration - no previous feedback
@@ -12,89 +12,111 @@ Initial iteration - no previous feedback
 # Technical Specification: "Visit Mongolia" - Iteration 2
 
 ## 1. Project Overview
-The goal of this iteration is to provide a robust, production-ready landing page for "Visit Mongolia." To address recurring deployment pipeline failures ("No prototype deployed"), the architecture will shift to a **monolithic, self-contained `index.html`** at the project root. This ensures the deployment engine finds a valid entry point immediately without complex build steps.
+The objective of this iteration is to resolve the deployment pipeline failures identified in Iteration 1 while delivering a high-fidelity, semantic, and visually engaging single-page introduction to Mongolia. The focus is on "Deployability First" to break the loop of missing prototypes.
 
-**Core Vision:** A visually stunning, responsive single-page application (SPA) that introduces users to the landscapes, culture, and travel opportunities in Mongolia.
+## 2. Updated Requirements & Scope
 
----
+### 2.1 Technical Fixes (Priority 1)
+*   **Root Entry Point:** Initialize `index.html` in the **root directory** to ensure automated build tools and deployment scripts detect the entry point immediately.
+*   **Build Pipeline Alignment:** Configure `package.json` scripts to explicitly recognize the root-level entry point.
+*   **Self-Contained Styling:** For this iteration, CSS will be embedded within a `<style>` tag in `index.html` or a clearly linked `style.css` in the same directory to prevent path-resolution errors during deployment.
 
-## 2. Technical Strategy
-*   **Architecture:** Single-file deployment.
-*   **Entry Point:** `/index.html` (Root directory).
-*   **Assets:** 
-    *   **CSS:** Inlined within `<style>` tags in the `<head>`.
-    *   **JS:** Inlined within `<script>` tags before the closing `</body>`.
-    *   **Images:** High-quality external CDN links (Unsplash) to keep the file size manageable.
-*   **Frameworks:** Vanilla HTML5, CSS3 (Flex/Grid), and modern ES6+ JavaScript.
+### 2.2 Functional Requirements
+*   **Hero Section:** High-impact visual introduction to Mongolia (The Land of the Eternal Blue Sky).
+*   **Cultural Context:** Brief sections on nomadic lifestyle, the Naadam festival, and the Gobi Desert.
+*   **Travel Essentials:** Quick facts (Currency, Language, Best time to visit).
+*   **Responsive Design:** Fully functional layout for Mobile, Tablet, and Desktop.
+
+### 2.3 Acceptance Criteria
+1.  **Deployability:** `npm run dev` starts a local server; the build output (if any) contains a valid `index.html`.
+2.  **Lighthouse Score:** Minimum 90+ on Accessibility and Best Practices.
+3.  **Semantic HTML:** Use of `<header>`, `<main>`, `<section>`, and `<footer>` tags.
+4.  **Visual Validity:** No broken image links; use high-quality placeholders (Unsplash) if local assets aren't bundled.
 
 ---
 
 ## 3. UI/UX Design Tokens
 
-| Token | Value | Description |
+### 3.1 Color Palette
+| Token | Hex Code | Usage |
 | :--- | :--- | :--- |
-| **Primary Color** | `#0033A0` (Mongolian Blue) | Represents the "Eternal Blue Sky." |
-| **Secondary Color** | `#DA291C` (Soyombo Red) | Represents fire and progress. |
-| **Accent Color** | `#FBE122` (Golden Yellow) | Represents the sun and eternal prosperity. |
-| **Background** | `#F9F7F2` (Off-white/Bone) | Soft contrast, reminiscent of traditional felt. |
-| **Text Color** | `#1A1A1A` (Deep Charcoal) | High readability. |
-| **Typography (Heading)** | `'Playfair Display', serif` | Elegant, timeless feel. |
-| **Typography (Body)** | `'Inter', sans-serif` | Modern, clean, highly legible. |
-| **Spacing Unit** | `8px` | Base scale for margins and padding. |
-| **Border Radius** | `12px` | Soft edges for cards and buttons. |
+| **Primary (Sky Blue)** | `#00AEEF` | Headers, CTA Buttons, Accents (Symbolizes the Eternal Blue Sky) |
+| **Secondary (Soyombo Gold)** | `#F9D71C` | Icons, Highlights, Borders (Symbolizes prosperity) |
+| **Earth (Steppe Green)** | `#4F7942` | Background accents, secondary sections |
+| **Neutral (Cloud White)** | `#F8F9FA` | Main background, body text on dark backgrounds |
+| **Text (Deep Asphalt)** | `#212529` | Primary typography |
+
+### 3.2 Typography
+*   **Heading Font:** `Montserrat` or `Playfair Display` (Serif for a majestic feel).
+*   **Body Font:** `Open Sans` or `Inter` (Sans-serif for readability).
+*   **Scale:**
+    *   H1: 3rem (Mobile: 2rem)
+    *   H2: 2.25rem (Mobile: 1.5rem)
+    *   Body: 1rem (16px)
+
+### 3.3 Spacing & Elevation
+*   **Spacing Unit:** 8px (Base-8 system).
+*   **Section Padding:** 64px (Vertical).
+*   **Shadows:** `0 4px 6px -1px rgba(0, 0, 0, 0.1)` for cards.
 
 ---
 
 ## 4. Component Breakdown
 
-### 4.1. Navigation Header
-*   **Sticky Position:** Stays at the top on scroll.
-*   **Logo:** Text-based "Visit Mongolia" with a simple SVG Soyombo symbol.
-*   **Links:** Smooth-scroll anchors to "Landscapes," "Culture," and "Experience."
+### 4.1 Navigation (`<nav>`)
+*   **Sticky Header:** Transparent to solid on scroll.
+*   **Links:** Home, Culture, Destinations, Planning.
+*   **Logo:** Minimalist "Visit Mongolia" text or Soyombo icon.
 
-### 4.2. Hero Section
-*   **Background:** Full-viewport height (100vh) background image of the Mongolian Steppe.
-*   **Overlay:** 40% dark tint for text contrast.
-*   **Content:** 
-    *   H1: "Land of the Eternal Blue Sky."
-    *   CTA Button: "Explore the Wild" (Primary Yellow).
+### 4.2 Hero Section (`<section id="hero">`)
+*   **Background:** High-resolution image of the Mongolian Steppe.
+*   **Overlay:** Darken (0.4) for text readability.
+*   **Content:** Centered H1 ("Discover the Untamed Beauty") and a "Begin Your Journey" CTA.
 
-### 4.3. "The Vastness" Feature Grid
-*   **Layout:** 3-column grid (Responsive to 1-column on mobile).
-*   **Cards:** 
-    1.  **Gobi Desert:** Image + Short description of the singing dunes.
-    2.  **Altai Mountains:** Image + Description of eagle hunters.
-    3.  **Khovsgol Lake:** Image + Description of the "Blue Pearl."
+### 4.3 Info Cards (`<section id="highlights">`)
+*   **Grid Layout:** 3-column layout.
+*   **Content:**
+    1.  *Nomadic Heritage:* Icon + Text.
+    2.  *Vast Landscapes:* Icon + Text.
+    3.  *Modern Ulaanbaatar:* Icon + Text.
 
-### 4.4. Cultural Spotlight (Interactive)
-*   **Section:** Information on the *Ger* (Yurt) and *Naadam* Festival.
-*   **Logic:** Simple JS-based tab switcher or "Read More" expansion to keep the UI clean.
+### 4.4 Quick Facts Grid (`<aside>`)
+*   **Layout:** 2x2 grid.
+*   **Data Points:** Capital (Ulaanbaatar), Currency (Tugrik), Language (Mongolian), Climate (Continental).
 
-### 4.5. Footer
-*   **Content:** Simple links, social media icons (placeholder), and copyright.
-*   **Artifact Note:** "Generated by ASLA" attribution.
+### 4.5 Footer (`<footer>`)
+*   **Content:** Copyright, "Built for ASLA Iteration 2," and social placeholder links.
 
 ---
 
-## 5. Acceptance Criteria
+## 5. Implementation Strategy
 
-| ID | Requirement | Success Metric |
-| :--- | :--- | :--- |
-| **AC-01** | **Deployment Fix** | The `index.html` must be in the root directory and contain all styles/logic. |
-| **AC-02** | **Responsiveness** | Page must be fully functional on mobile (375px), tablet, and desktop (1440px). |
-| **AC-03** | **Visual Fidelity** | Must use at least 3 high-resolution images of Mongolia via CDN. |
-| **AC-04** | **Performance** | Page Load Time < 2 seconds (excluding image assets). |
-| **AC-05** | **Navigation** | All anchor links must smoothly scroll to their respective sections. |
-
----
-
-## 6. Implementation Plan (Iteration 2 Priorities)
-
-1.  **Critical Path:** Create `/index.html` at root and move all logic from `src/` into this file to resolve the "Missing Artifact" error.
-2.  **Styling:** Implement the CSS Grid for the "Vastness" section and the Blue/Red/Gold color palette.
-3.  **Content:** Add curated text descriptions for the Gobi, Altai, and Khovsgol regions.
-4.  **Optimization:** Minify the inline CSS/JS manually (if possible) or ensure it is highly organized for easy future extraction.
-5.  **Validation:** Test the file by opening it directly in a browser without a build server to ensure total self-sufficiency.
+1.  **Directory Cleanup:** Move or copy `src/index.html` to the **root** `./index.html`.
+2.  **Scaffolding:**
+    ```html
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Visit Mongolia | Land of the Eternal Blue Sky</title>
+        <!-- Embedded CSS for deployment reliability -->
+        <style>...</style> 
+    </head>
+    <body>
+        <!-- Semantic Components -->
+    </body>
+    </html>
+    ```
+3.  **Vite/Build Config:** Update `package.json` to ensure the root is the base directory.
+    ```json
+    "scripts": {
+      "dev": "vite",
+      "build": "vite build",
+      "preview": "vite preview"
+    }
+    ```
+4.  **Verification:** Run `npm run build` locally to verify the `dist/` folder contains a working `index.html` before pushing to the automated agent.
 
 ## Acceptance Criteria
 - All features must be fully implemented (no placeholders)
@@ -103,4 +125,4 @@ The goal of this iteration is to provide a robust, production-ready landing page
 - Code must pass TypeScript compilation
 
 ---
-*Generated by ASLA Product Agent - Iteration 2 - 2025-12-28T06:04:16.748Z*
+*Generated by ASLA Product Agent - Iteration 2 - 2025-12-28T09:10:44.414Z*
