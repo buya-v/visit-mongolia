@@ -34,7 +34,7 @@ To ensure 100% deployment success, this iteration eliminates complex build tools
 ---
 
 ## 3. UI/UX Design Tokens
-To capture the essence of Mongolia, the UI will utilize a palette inspired by the Gobi Desert, the Steppe, and the Khövsgöl Lake.
+To capture the essence of Mongolia, the UI will utilize a palette inspired by the Gobi Desert, the Steppe, and the KhÃ¶vsgÃ¶l Lake.
 
 | Token | Value | Description |
 | :--- | :--- | :--- |

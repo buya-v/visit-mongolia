@@ -12,7 +12,7 @@ Initial iteration - no previous feedback
 # Technical Specification: "Mongolia: Land of the Eternal Blue Sky"
 
 ## 1. Project Overview
-A high-impact, single-page informational website designed to introduce international visitors to the geography, culture, and history of Mongolia. The aesthetic focuses on "Expansive Minimalism"âreflecting the vastness of the Mongolian steppe.
+A high-impact, single-page informational website designed to introduce international visitors to the geography, culture, and history of Mongolia. The aesthetic focuses on "Expansive Minimalism"Ã¢ÂÂreflecting the vastness of the Mongolian steppe.
 
 ---
 
