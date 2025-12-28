@@ -21,7 +21,7 @@ const STATIC_DESTINATIONS: Destination[] = [
     description: 'Witness the ancient tradition of eagle hunting in the Altai Mountains, a cultural spectacle unlike any other.',
     imageUrl: 'https://images.unsplash.com/photo-1596296317586-b41315664d50?q=80&w=2070&auto=format&fit=crop',
     category: 'Culture',
-    location: 'Bayan-Ölgii Province'
+    location: 'Bayan-Ãlgii Province'
   },
   {
     id: '3',
@@ -37,7 +37,7 @@ const STATIC_DESTINATIONS: Destination[] = [
     description: 'Explore the earliest surviving Buddhist monastery in Mongolia, located near the ancient capital of Karakorum.',
     imageUrl: 'https://images.unsplash.com/photo-1579782536830-4e5a95690b23?q=80&w=1974&auto=format&fit=crop',
     category: 'Culture',
-    location: 'Övörkhangai Province'
+    location: 'ÃvÃ¶rkhangai Province'
   },
   {
     id: '5',
